@@ -1,0 +1,38 @@
+Question:-3
+
+
+import java.util.HashMap;
+
+public class WordCount {
+    public static HashMap<String, Integer> countWords(String input) {
+        
+        String[] words = input.split("\\s+"); // Split by whitespace
+        
+        
+        HashMap<String, Integer> wordCountMap = new HashMap<>();
+        
+        
+        for (String word : words) {
+            
+            word = word.toLowerCase();
+            
+            
+            wordCountMap.put(word, wordCountMap.getOrDefault(word, 0) + 1);
+        }
+        
+        return wordCountMap;
+    }
+
+    public static void main(String[] args) {
+        String input = "Hello world hello world how are you World";
+        
+       
+        HashMap<String, Integer> wordCountMap = countWords(input);
+        
+        
+        System.out.println("Word Counts:");
+        for (String word : wordCountMap.keySet()) {
+            System.out.println(word + ": " + wordCountMap.get(word));
+        }
+    }
+}
